@@ -1,0 +1,2 @@
+The main author of this plugin is:
+ * Octavio González <ogonzalez@emergya.com>

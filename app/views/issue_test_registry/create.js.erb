@@ -1,0 +1,4 @@
+//Re-render the registry table
+$('#issue_test_registry').html('<%= escape_javascript(render :partial => 'issues/test_registry_div') %>');
+//Hide the new test registry form
+$("#new-test_registry-form").hide();

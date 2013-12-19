@@ -1,0 +1,36 @@
+<h2><%=l('label_test_registry_project')%></h2>
+
+<% if @issues.empty? %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% else %>
+<div id="test_registry">
+<% @issues.each do |issue| %>
+
+    <h3 class="version"><%= link_to_issue issue, :name => issue.subject %></h3>
+  <% if (tests = @tests_by_issue[issue.id]) && tests.size > 0 %>
+    <%= form_tag({}) do -%>
+    <table class="list related-issues">
+      <tr>
+        <th class="test_date"><%=l(:label_test_date)%></td>
+        <th class="test_version"><%=l(:label_version)%></td>
+        <th class="test_environment"><%=l(:label_test_environment)%></td>
+        <th class="test_result"><%=l(:label_test_result)%></td>
+      </tr>
+    <% tests.each do |test_registry_item| -%>
+      <tr class="issue">
+        <td class="test_date"><%= format_date(test_registry_item.test_date) %></td>
+        <td class="test_version"><%=h test_registry_item.version %></td>
+        <td class="test_environment"><%=h test_registry_item.test_environment %></td>
+        <td class="test_result"><%= test_registry_item.test_result_label %></td>
+      </tr>
+    <% end -%>
+    </table>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render :partial => 'issues/sidebar' %>
+<% end %>

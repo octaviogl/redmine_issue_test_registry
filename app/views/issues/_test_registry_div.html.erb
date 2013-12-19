@@ -1,0 +1,41 @@
+<p><strong><%=l(:label_issue_test_registry_plural)%></strong></p>
+
+  <% if @issue.test_registry.present? %>
+    <form>
+    <table class="list issues" id="test_registry_table">
+    <% if !@issue.test_registry.empty?%>
+      <tr>
+        <th class="test_date"><%=l(:label_test_date)%></td>
+        <th class="test_version"><%=l(:label_version)%></td>
+        <th class="test_environment"><%=l(:label_test_environment)%></td>
+        <th class="test_result"><%=l(:label_test_result)%></td>
+        <th class="buttons"><%=l(:label_test_registry_delete)%></td>
+      </tr>
+    <%end%>
+    <% @issue.test_registry.each do |test_registry_item| %>
+      <tr class="issue" id="test_registry-<%= test_registry_item.id %>">
+        <td class="test_date"><%= format_date(test_registry_item.test_date) %></td>
+        <td class="test_version"><%=h test_registry_item.version %></td>
+        <td class="test_environment"><%=h test_registry_item.test_environment %></td>
+        <td class="test_result"><%= test_registry_item.test_result_label %></td>
+        <td class="test_buttons"><%= link_to image_tag('delete.png'),
+                                      "/issue_test_registry/destroy?test_registry_id=#{test_registry_item.id}",
+                                      :remote => true,
+                                      :method => :delete,
+                                      :data => {:confirm => l(:text_are_you_sure)},
+                                      # manage_issue_test_registry
+                                      :title => l(:label_test_registry_delete) if test_registry_item.editable? %></td>
+      </tr>
+    <% end %>
+    </table>
+    </form>
+  <% end %>
+
+  <%= form_for @test_registry, {
+                   :as => :test_registry, :remote => true,
+                    :url => {:controller => 'issue_test_registry', :action => 'create', :issue_id => @issue.id},
+                   :method => :post,
+                   :html => {:id => 'new-test_registry-form', :style => (@test_registry ? '' : 'display: none;')}
+                 } do |f| %>
+  <%= render :partial => 'issue_test_registry/test_registry', :locals => {:f => f}%>
+  <% end %>

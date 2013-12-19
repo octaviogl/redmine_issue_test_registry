@@ -1,0 +1,2 @@
+module IssueTestRegistryHelper
+end

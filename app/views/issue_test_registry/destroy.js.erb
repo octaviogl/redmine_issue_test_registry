@@ -1,0 +1,6 @@
+//Delete the selected element
+$('#test_registry-<%= @test_registry.id %>').remove();
+//Delete the table if there are no test registered
+if (!($('tr[id^=test_registry-]').length > 0)){
+  $('#test_registry_table').hide();
+}

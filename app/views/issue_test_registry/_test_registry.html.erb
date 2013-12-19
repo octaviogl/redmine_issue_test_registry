@@ -1,0 +1,10 @@
+<%= error_messages_for 'test_registry' %>
+
+<p>
+<%= l(:label_test_date) %>: <%= f.text_field :test_date, :size => 10 %><%= calendar_for('test_registry_test_date') %>
+<%= l(:label_version) %>: <%= f.text_field :version, :size => 15 %>
+<%= l(:label_test_environment) %>: <%= f.text_field :test_environment, :size => 15 %>
+<%= l(:label_test_result) %>: <%= f.select :test_result, [[l(:label_test_result_nil),''],[l(:label_test_result_nok), 0], [l(:label_test_result_ok), 1]] %>
+<%= submit_tag l(:button_add) %>
+<%= link_to_function l(:button_cancel), '$("#new-test_registry-form").hide();'%>
+</p>

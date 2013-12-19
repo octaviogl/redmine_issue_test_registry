@@ -1,0 +1,15 @@
+<%  if !@issue.blank? && Setting.plugin_redmine_issue_test_registry['test_registry_tracker'].include?(@issue.tracker_id.to_s) && User.current.allowed_to?(:view_issue_test_registry, @project) %>
+
+<hr />
+<div class="contextual">
+<% if User.current.allowed_to?(:manage_issue_test_registry, @project) %>
+  <%= toggle_link l(:button_add), 'new-test_registry-form', {:focus => 'test_registry_issue_to_id'} %>
+<% end %>
+</div>
+
+<div id="issue_test_registry">
+  <%= render :partial => 'issues/test_registry_div' %>
+</div>
+
+<% end %>
+

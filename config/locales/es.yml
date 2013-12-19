@@ -1,0 +1,18 @@
+# Spanish strings go here for Rails i18n
+es:
+  project_module_issue_test_registry: Registro de Pruebas
+  label_test_registry_project: Tests
+
+  permission_view_test_registry: Ver Registro de Pruebas del Proyecto
+  permission_view_issue_test_registry: Ver Registro de Pruebas de una Tarea
+  permission_manage_issue_test_registry: Gestionar Registro de Pruebas
+
+  label_issue_test_registry_plural: Registro de Pruebas
+  label_test_date: Fecha de la prueba
+  label_test_environment: Entorno
+  label_test_result: Resultado
+  label_test_registry_delete: Eliminar
+  label_test_result_nil: ---
+  label_test_result_ok: Correcto
+  label_test_result_nok: Incorrecto
+  label_test_registry_tracker: Tipos de peticiones

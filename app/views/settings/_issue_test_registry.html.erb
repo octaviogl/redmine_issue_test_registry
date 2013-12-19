@@ -1,0 +1,7 @@
+<p>
+  <label><%=l :'label_test_registry_tracker' %></label>
+  <%= select_tag 'settings[test_registry_tracker]',
+      ('<option></option>' +
+        options_from_collection_for_select(Tracker.all, :id, :name, (@settings['test_registry_tracker'] || []).collect(&:to_i))).html_safe, :multiple => true %>
+</p>
+

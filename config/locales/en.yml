@@ -1,0 +1,19 @@
+# English strings go here for Rails i18n
+en:
+  project_module_issue_test_registry: Test Registry
+  label_test_registry_project: Tests
+
+  permission_view_test_registry: View Project Test Registry
+  permission_view_issue_test_registry: View Issue Test Registry
+  permission_manage_issue_test_registry: Manage Test Registry
+
+  label_issue_test_registry_plural: Test Registry
+  label_test_date: Test Date
+  label_test_environment: Environment
+  label_test_result: Result
+  label_test_registry_delete: Delete Test
+  label_test_result_nil: ---
+  label_test_result_ok: Passed
+  label_test_result_nok: Not Passed
+  label_test_registry_tracker: Trackers
+
